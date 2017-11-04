@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar_story"
+            layout="@layout/news_story_toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/story_loading_indicator"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:indeterminateTint="@color/colorAccent"
+                android:max="100"
+                android:progress="40" />
+
+            <!-- Empty view is only visible when the list has no items. -->
+            <TextView
+                android:id="@+id/web_message_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/story_loading_indicator"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/white"
+                tools:text="@string/message_placeholder" />
+
+            <WebView
+                android:id="@+id/web_view_story"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>
